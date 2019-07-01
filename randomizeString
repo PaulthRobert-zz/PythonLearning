@@ -1,1 +1,71 @@
 
+#Paul Davis
+#6/20/19
+#
+#   The purpose of this program is to create a group of functions that can accept a string as an input, and return the
+#   string jumbled in a completely random string, with the exact same set of charachters
+
+
+#   two string for testig
+
+catString='George is a grey cat who likes to sleep in an orange Nike shoe box.';
+cats='Cat'
+
+#random numbers
+import random
+
+
+def printListString(listIn):
+    #display string by turning through the string or list
+
+    for x in range(len(listIn)):
+        print (str(listIn[x]).strip('[]'),end='')
+
+
+def randomizeString(strIn):
+
+    rList = []                  #create the list variable for storing the random numbers
+
+    r = random.randint(0, len(strIn))    # assign a random number to r
+
+    for i in range(0,len(strIn)):         #loop through numbers 0 to x (length of string) - random no repeats
+        x = 0  # counter to control exit of the while loop
+
+        while x<len(rList):
+
+            if rList[x] == r:               #check for repeat values
+                while rList[x]==r:          #loop as long as r is a repeat of rList[x]
+                    #print('A -- x: ' + str(x) + ' rList[x]: ' + str(x) + ' r: ' + str(r))      #test statement
+                    r = random.randint(0, 3)  # assign random number to r
+                    #print('B -- x: '+str(x)+' rList[x]: '+str(x)+' r: '+str(r))               #   test statement
+                    x=x-x   #reset the counter and start over if a duplicate is found
+
+            x+=1        #incriment the counter
+
+        rList.extend([r])   #append the new number to the list
+
+    for a in range(len(strIn)):        #loop through the input string
+        newStr=[0]  #define the new string
+        print(a)
+        newStr.append(a)
+
+    print(rList)    #output the list when finished - replate this with a return statement when finished
+    print(newStr)
+
+
+
+randomizeString(cats)
+
+#printListString(randomizeString(catString))     #nested function calls
+
+
+
+#count the numnber of times each charachter occurs in a string
+
+
+
+
+
+
+
+
