@@ -26,7 +26,7 @@ def randomizeString(strIn):
 
     rList = []                  #create the list variable for storing the random numbers
 
-    r = random.randint(0, len(strIn))    # assign a random number to r
+    r = random.randint(0, len(strIn)-1)    # assign a random number to r
 
     for i in range(0,len(strIn)):         #loop through numbers 0 to x (length of string) - random no repeats
         x = 0  # counter to control exit of the while loop
@@ -36,7 +36,7 @@ def randomizeString(strIn):
             if rList[x] == r:               #check for repeat values
                 while rList[x]==r:          #loop as long as r is a repeat of rList[x]
                     #print('A -- x: ' + str(x) + ' rList[x]: ' + str(x) + ' r: ' + str(r))      #test statement
-                    r = random.randint(0, 3)  # assign random number to r
+                    r = random.randint(0, len(strIn)-1)  # assign random number to r
                     #print('B -- x: '+str(x)+' rList[x]: '+str(x)+' r: '+str(r))               #   test statement
                     x=x-x   #reset the counter and start over if a duplicate is found
 
@@ -44,24 +44,26 @@ def randomizeString(strIn):
 
         rList.extend([r])   #append the new number to the list
 
-    for a in range(len(strIn)):        #loop through the input string
-        newStr=[0]  #define the new string
-        print(a)
-        newStr.append(a)
+    newStr = []  # define the new string
+    for a in range(0,len(strIn)):        #loop through the input string
 
-    print(rList)    #output the list when finished - replate this with a return statement when finished
-    print(newStr)
+        #print(a)
+        #newStr.append(a)
+
+        newStr.append(strIn[rList[a]])
+
+    #print(rList)    #output the list when finished - replace this with a return statement when finished
+    return(newStr)
 
 
 
-randomizeString(cats)
+printListString(randomizeString(catString))
 
 #printListString(randomizeString(catString))     #nested function calls
 
 
 
 #count the numnber of times each charachter occurs in a string
-
 
 
 
